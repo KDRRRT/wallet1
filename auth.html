@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization</title>
+</head>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:ital,wght@0,400;0,700;1,300&family=Work+Sans&display=swap');
+    
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1f211f ;
+    }
+    .container {
+        width: 800px;
+        height: 500px;
+        padding: 40px 0;
+        position: relative;
+    }
+    .block {
+        height: 100%;
+        background-color: rgba(107, 255, 196, 0.1);
+        box-shadow: 0 5px 45px rgba(31, 33, 31, .2);
+        display: flex;
+        align-items: center;
+    }
+    .block_item {
+        text-align: center;
+        width: 50%;
+    }
+    .block_item_title {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #dbdbdb;
+        margin-bottom: 10px;
+    }
+    .block_item_btn {
+        border: none;
+        border-radius: 5px;
+        background-color: #12908a;
+        color: #dbdbdb;
+        cursor: pointer;
+        padding: 10px 40px;
+    }
+    .form_box {
+        height: 100%;
+        width: 50%;
+        background-color: #f7f6e3;
+        box-shadow: 0 5px 45px rgba(31, 33, 31, .2);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        transition: .3s ease-in-out;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+    }
+   .form_box.active {
+        left: 50%;
+    }
+    .form_box.active .form_signin {
+        left: -100%;
+        transition-delay: 0s;
+    }
+    .form_box.active .form_signup {
+        left: 0;
+        transition-delay: .25s;
+    }
+    form {
+        width: 100%;
+        padding: 50px;
+        font-size: 16px;
+        position: absolute;
+        transition: .5s;
+    }
+    .form_title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #1f211f;
+    }
+    .form_input {
+        width: 100%;
+        padding: 10px;
+        font-size: inherit;
+        border: 1px solid #1f211f;
+        background-color: #f9f8e7;
+        border-radius: 5px;
+    }
+    .form_btn {
+        border: none;
+        border-radius: 5px;
+        background-color: #12908a;
+        color: #dbdbdb;
+        cursor: pointer;
+        padding: 10px 40px;
+        text-decoration: none;
+        list-style: none;
+    }
+    .form_forgot {
+        color:#1f211f
+    }
+    .form_signin {
+        left: 0;
+        transition-delay: .25s;
+    }
+    .form_signup {
+        left: 100%;
+        transition-delay: 0s;
+    }
+    /* .form_btn > a {
+        text-decoration: none;
+    } */
+
+    @media (max-width:992px) {
+        .container {
+            min-width: 400px;
+            height: 650px;
+            padding: 0;
+            margin: 0 20px;
+        }
+        .block {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .block_item {
+            width: 100%;
+            padding: 30px 0;
+        }
+        .form_box {
+            width: 100%;
+            height: 500px;
+            box-shadow: none;
+            top: 0;
+        }
+        .form_box.active {
+            top: 150px;
+            left: 0;
+        }
+    }
+
+</style>
+<body>
+    <article class="container">
+        <div class="block">
+            <section class="block_item">
+                <h2 class="block_item_title">Do you have an account?</h2>
+                <button class="block_item_btn sign_in_btn">Sign in</button>
+            </section>
+            <section class="block_item">
+                <h2 class="block_item_title">Don't have an account?</h2>
+                <button class="block_item_btn sign_up_btn">Sign up</button>
+            </section>
+        </div>
+        <div class="form_box">
+            <form action="" class="form form_signin">
+                <h3 class="form_title">Sign in</h3>
+                <p><input class="form_input" type="text" placeholder="Phone number"></p>
+                <p><input class="form_input" type="password" placeholder="Password"></p>
+                <a href="./main.html" class="form_btn">Sign in</a>
+                <p><a class="form_forgot" href="#">Forgot your password</a></p>
+            </form>
+            <form action="" class="form form_signup">
+                <h3 class="form_title">Sign up</h3>
+                <p><input class="form_input" type="text" placeholder="Wallet number"></p>
+                <p><input class="form_input" type="text" placeholder="Phone number"></p>
+                <p><input class="form_input" type="password" placeholder="Password"></p>
+                <p><input class="form_input" type="text" placeholder="Repeat assword"></p>
+                <a href="./main.html" class="form_btn">Sign in</a>
+            </form>
+        </div>
+    </article>
+    <script>
+        const signInBtn = document.querySelector('.sign_in_btn');
+        const signUpBtn = document.querySelector('.sign_up_btn');
+        const formBox = document.querySelector('.form_box');
+
+        signUpBtn.addEventListener('click', function() {
+            formBox.classList.add('active')
+        });
+        signInBtn.addEventListener('click', function() {
+            formBox.classList.remove('active')
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WalletApp</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./jquery-ui-1.13.2.custom/jquery-ui.css">
+</head>
+
+<header>
+    <div class="settings">
+        <div><div class="set_img"><img class="sett" src = "./pic/settings.png" width="30px" height="30px"></div>
+        <ul class="sett_menu">
+            <a href="#"><li class="sett_menu_link  themetoggle lng">Dark theme</li></a>
+            <li class="sett_menu_link sub_main lng">Language
+                <ul class="sub_sett_menu">
+                    <a href="#"><li class="sub_sett_menu_link">EN</li></a>
+                    <a href="#"><li class="sub_sett_menu_link">RU</li></a>
+                </ul>
+            </li>
+            <a href="#"><li class="sett_menu_link lng">Support</li></a>
+        </ul>
+        
+    </div>
+</div>
+    <div class="header_inner">
+        <img class="header_img" width="50" height="50"  src = "./pic/free-icon-crypto-9308135.png">
+        <div class = "header_name">My Wallet</div>
+    </div>
+    <div class="acc">
+        <img class = "acc_img" src = "./pic/account.png" width = "30px" height="30px">
+            <div class="acc_nav">
+                <div class="acc_main lng">Account 1
+                    <ul class="acc_menu">
+                        <a href="#"><li class="acc_menu_link">Edit account</li></a>
+                        <a href="#"><li class="acc_menu_link">Change account</li></a>
+                        <a href="#"><li class="acc_menu_link">Exit account</li></a>
+                    </ul>
+                </div>
+            </div>
+    </div>
+</header>
+
+<body>
+    <section class="section">
+        <div class="cont-op">
+            <div class="new_op">
+                <div class="op">
+                    <img class="list_icon list1" src="./pic/buysell.png">
+                    <div class="list_text"><p>Sell & buy</p></div>
+                </div>
+                <div class="popup_fade">
+                 <div class="popup " id="draggable">
+                    <span class="navbar-toggler-icon">&times;</span>
+                <form class="" >
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Phone number">
+                        <label for="floatingPassword">Sender</label>
+                      </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control rounded-3" id="floatingInput" placeholder="Phone number">
+                      <label for="floatingInput">Recipient</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control rounded-3" id="floatingPassword" placeholder="Sum">
+                      <label for="floatingPassword">Sum</label>
+                    </div>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary form_btn" type="submit">Send</button>
+                    <div ><img class="loading" src="./pic/load.png" width="30px" height="30px"></div>
+                    <div class="load_fin">Done</div>
+                  </form>
+                </div> 
+            </div>
+            <script src="https://yandex.st/jquery/2.1.1/jquery.min.js"></script>
+            <script>
+$(document).ready(function($) {
+	$('.listpop').click(function() {
+		$('.popup_fade').fadeIn();
+		return false;
+	});	
+	
+	$('.navbar-toggler-icon').click(function() {
+		$(this).parents('.popup_fade').fadeOut();
+        $('.form_btn').css('display', 'block');
+        $('.loading').css('display', 'none');
+        $('.load_fin').css('display', 'none');
+		return false;
+	});
+    $('.popup_fade').click(function(e) {
+		if ($(e.target).closest('.popup').length == 0) {
+			$(this).fadeOut();
+            $('.form_btn').css('display', 'block');
+            $('.loading').css('display', 'none');
+            $('.load_fin').css('display', 'none');					
+		}
+	});
+});
+</script>
+                <div class="op listpop">
+                    <img class="list_icon list2 " src="./pic/send (1).png">
+                    <div class="list_text"><p>Send</p></div>
+                </div>
+                <div class="op">
+                    <img class="list_icon list3" src="./pic/swap.png">
+                    <div class="list_text"><p>Swap</p></div>
+                </div>
+                <div class="op">
+                    <img class="list_icon list4" src="./pic/stat.png">
+                    <div class="list_text"><p>Statistics</p></div>
+                </div>
+            </div>
+          <div class="wallets">
+                <div class="wal_name">123456789</div>
+                    <div class="wal">
+                        <div class="wal_c">
+                            <div class="cash">0</div>
+                            <div class="cash_name">ETH</div>
+                        </div>
+                        <div class="wal_c">
+                            <div class="cash2">0.00</div>
+                            <div class="cash_name">USD</div>
+                        </div>
+                    </div>
+            </div>
+            <div class="wal_add">+</div>
+        </div>
+
+        <div class="cont cont-b">
+            <div class="history">
+                <div class="history_title">My activity</div>
+                <div class="search_form">
+                    <input class = "search_text" placeholder="Search" type="text">
+                    <button class = "search_btn" type = "submit" name="submit"><img class = "search_btn_img" src = "./pic/lupa.png"></button> 
+                </div>
+                <div class="history_chose">
+                    <div class="chose chose1" style="font-weight: 600;">All</div>
+                    <div class="chose chose2" style="font-weight: 400;">Tokens</div>
+                    <div class="chose chose3" style="font-weight: 400;">NFTs</div>
+                </div>
+                <div class="history_items">
+                    <div class="h_item">
+                        <img class = "acc_img ac1" src = "./pic/account.png">
+                        <div class="acc_h_text"><p>Name</p></div>
+                        <div class="h_sum">0.00</div>
+                        <span class = "cash_name2">USD</span>
+                    </div>
+                    <div class="h_item">
+                        <img class = "acc_img ac2" src = "./pic/account.png">
+                        <div class="acc_h_text"><p>Name</p></div>
+                        <div class="h_sum">0.00</div>
+                        <span class = "cash_name2">USD</span>
+                    </div>
+                    <div class="h_item">
+                        <img class = "acc_img ac3" src = "./pic/account.png">
+                        <div class="acc_h_text"><p>Name</p></div>
+                        <div class="h_sum">0.00</div>
+                        <span class = "cash_name2">USD</span>
+                    </div>
+                </div>
+                <div class="history_opt">
+                    <div class="opt">
+                        <img class = "opt_img opt1" src = "./pic/import.png" width="15px" height = "15px">
+                        <div class="opt_name">Import Tokens</div>
+                    </div>
+                    <div class="opt">
+                        <img class = "opt_img opt2" src = "./pic/clear.png" width="15px" height = "15px">
+                        <div class="opt_name">Clear list</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  
+    <script src="./js/script.js"></script>
+    <script src="./js/lang.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</body>
+
+</html>
